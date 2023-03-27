@@ -1,0 +1,33 @@
+Home Screen 
+
+- title header
+- mute button
+- instruction modal
+- start button
+
+
+Start Screen
+
+- player name
+- difficulty (less lives)
+- mute button
+
+
+Round Screen
+
+- lives
+- score - how many rounds
+- choosing rock paper or scissors 
+- animated ai dots thinking
+- mute button 
+- give up button 
+
+
+Round Screen - give up button modal
+
+- continue button - back to round screen
+- quit button - back to home screen
+
+Round Screen - you lost
+
+- play again button - to home screen

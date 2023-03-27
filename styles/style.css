@@ -1,0 +1,161 @@
+* {
+  font-family: "Gluten", cursive;
+}
+
+.none {
+  display: none;
+}
+
+/* music */
+
+#bgMusic {
+  display: none;
+}
+
+/* index page */
+.textWrap {
+  /* position: absolute; */
+  font-size: 2rem;
+  width: 100%;
+  top: 15.625rem;
+}
+
+.titleWrap {
+  position: relative;
+}
+
+.contain {
+  /* position: relative; */
+  max-width: 45rem;
+  height: 35rem;
+  margin: 2rem auto;
+  padding-bottom: 1rem;
+  border: solid 2px black;
+  border-radius: 0.9375rem;
+}
+
+#indexPage {
+  text-align: center;
+}
+
+/* title */
+
+span.title,
+span.bigTitle {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0.625rem;
+  animation: bounceAnim 1s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+span.title {
+  font-size: 3rem;
+}
+span.bigTitle {
+  font-size: 5rem;
+}
+
+@keyframes bounceAnim {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-70px);
+  }
+}
+
+.muteBtn {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.headBar {
+  text-align: right;
+  padding: 1rem;
+  padding-top: 3rem;
+}
+
+/* big rock paper scissors */
+
+.rps img {
+  width: 9rem;
+  height: auto;
+  padding: 1rem;
+  padding-top: 3rem;
+}
+
+/* buttons */
+
+.btnGroup {
+  padding-top: 2.5rem;
+}
+
+/* start page */
+
+#startPage {
+  text-align: center;
+}
+
+#startGameBtn {
+  width: 10rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.startPageHeading {
+  text-align: center;
+  font-size: 3rem;
+}
+
+#startPage .marginCenter {
+  margin: auto;
+  width: 30rem;
+  text-align: left;
+}
+
+.marginCenter,
+#difficultyBtn {
+  padding-top: 2rem;
+}
+
+/* input[type="radio"] {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+} */
+
+input[type="radio"]:checked + label {
+  background-color: black;
+}
+
+/* round page */
+
+#data {
+  padding: 1.5rem;
+}
+
+.gameplay {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  padding: 1.5rem;
+}
+
+#playerSide img {
+  width: 5rem;
+}
+
+.quit {
+  text-align: right;
+  padding: 1rem;
+}
+
+#gameOver {
+  margin: auto;
+
+  text-align: center;
+}

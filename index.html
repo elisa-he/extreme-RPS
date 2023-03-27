@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS EXTREME</title>
+    <!-- css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <!-- jquery -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  </head>
+  <body>
+    <embed
+      src="media/happyMusic.mp3"
+      loop="true"
+      autostart="true"
+      id="bgMusic"
+    />
+
+    <div class="contain">
+      <div class="headBar">
+        <img class="muteBtn" src="images/sound-icon.svg" alt="sound-speaker" />
+      </div>
+      <!-- index screen -->
+      <section id="indexPage" class="screen">
+        <section class="titleWrap">
+          <div class="textWrap">
+            <span class="title" style="--i: 1">R</span>
+            <span class="title" style="--i: 2">P</span>
+            <span class="title" style="--i: 3">S</span>
+            <span class="bigTitle" style="--i: 4">XTREME</span>
+          </div>
+        </section>
+
+        <div class="rps">
+          <img
+            src="images/rps/hand-back-fist-regular.svg"
+            alt="cartoon hand in a fist"
+          />
+          <img src="images/rps/hand-regular.svg" alt="cartoon hand" />
+          <img
+            src="images/rps/hand-scissors-regular.svg"
+            alt="cartoon hand in scissors form"
+          />
+        </div>
+        <div class="btnGroup">
+          <button
+            type="button"
+            class="btn btn-dark btn-lg"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Instructions
+          </button>
+          <button
+            type="button"
+            id="startBtn"
+            class="btn btn-outline-dark btn-lg"
+          >
+            Start
+          </button>
+        </div>
+
+        <!-- instruction modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">How to play?</h5>
+              </div>
+              <div class="modal-body">
+                1. insert name 2. choose difficulty 3. choose Rock Paper or
+                Scissors!
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- start page -->
+      <section id="startPage" class="screen none">
+        <h2 class="startPageHeading">Who's the Champion?</h2>
+        <div class="marginCenter">
+          <label for="playerName">Player's Name:</label>
+          <input type="text" name="playerName" id="playerName" required />
+
+          <div id="difficultyBtn">
+            <form action="" method="post">
+              <label for="difficultyBtn">Difficulty:</label>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-lg btn-success">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="easy"
+                    value="5"
+                    autocomplete="off"
+                  />
+                  Easy
+                </label>
+                <label class="btn btn-lg btn-warning">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="medium"
+                    value="3"
+                    autocomplete="off"
+                  />
+                  Medium
+                </label>
+                <label class="btn btn-lg btn-danger">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="hard"
+                    value="2"
+                    autocomplete="off"
+                  />
+                  Hard
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <img
+          id="startGameBtn"
+          src="images/arrow-play.svg"
+          alt="triangle arrow pointing right"
+        />
+      </section>
+      <section id="roundPage" class="screen none">
+        <div id="data">
+          <label for="lives">lives:</label>
+          <p id="lives">null</p>
+          <label for="score">score:</label>
+          <p id="score">0</p>
+        </div>
+        <div class="gameplay">
+          <div id="playerSide">
+            <p class="nameCaption"></p>
+            <div id="choices">
+              <label for="rock">
+                <input type="radio" name="rps" id="rock" value="1" />
+                <img
+                  src="images/rps/hand-back-fist-regular.svg"
+                  alt="hand in fist"
+                />
+              </label>
+              <label for="paper">
+                <input type="radio" name="rps" id="paper" value="2" />
+                <img src="images/rps/hand-regular.svg" alt="hand" />
+              </label>
+              <label for="scissors">
+                <input type="radio" name="rps" id="scissors" value="3" />
+                <img
+                  src="images/rps/hand-scissors-regular.svg"
+                  alt="hand in scissors"
+                />
+              </label>
+            </div>
+            <button type="button" id="playerSubmitBtn" class="btn btn-success">
+              Submit
+            </button>
+          </div>
+          <div id="aiSide">
+            <p class="aiThinking">Enemy is thinking</p>
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="chosenImg"></div>
+          </div>
+        </div>
+        <div class="quit">
+          <!--  modal for quitting-->
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#quitModal"
+          >
+            Quit
+          </button>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="quitModal"
+            tabindex="-1"
+            aria-labelledby="quitModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="quitModalLabel">
+                    Are you sure?
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">you still have a chance!</div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Stay
+                  </button>
+                  <button
+                    type="button"
+                    data-bs-dismiss="modal"
+                    class="btn btn-dark quitBtn"
+                  >
+                    Quit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gameOver" class="screen none">
+        <h1>GAMEOVER!</h1>
+        <h2>your score is: <span class="scoreCurrent"></span></h2>
+        <button class="btn btn-lg btn-dark playAgain">Play again</button>
+      </section>
+    </div>
+    <!-- bootstrap -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- own JS -->
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
